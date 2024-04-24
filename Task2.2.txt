@@ -1,0 +1,12 @@
+- name: delete block list entry
+  hosts: checkpoint
+  connection: httpapi
+
+    - include_role:
+        name: acl_manager
+        Tasks_from: unblock_ip
+
+      vars:
+        source_ip: 192.168.0.100
+        destination_ip: 192.168.0.101
+        ansible_network_os: checkpoint
